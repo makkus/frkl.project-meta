@@ -1,0 +1,16 @@
+frkl_project_meta_build_binary_windows:
+  image:
+    name: registry.gitlab.com/frkl/frkl-python-build:dev-win
+    entrypoint: [""]
+  stage: build_windows
+  needs:
+    - frkl_project_meta_build_pkg_dev
+  variables:
+    SRCDIR: $CI_PROJECT_DIR
+    TEMPDIR: "$CI_PROJECT_DIR/build_temp"
+    PYTHON_VERSION: "3.7.8"
+  script:
+    - "/opt/entrypoint.sh"
+  artifacts:
+    paths:
+      - dist/windows/project-meta.exe

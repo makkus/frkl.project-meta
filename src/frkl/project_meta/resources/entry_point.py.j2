@@ -1,0 +1,43 @@
+# -*- coding: utf-8 -*-
+"""Console script for frkl_pkg."""
+import os
+import sys
+import logging
+
+log = logging.getLogger("frkl")
+
+AVAILABLE_ENTRY_POINTS = [ {% for script_name in scripts.keys() %}
+    "{{ script_name }}",{% endfor %}
+]
+
+def cli_entry(argv):
+    """Console script for frkl_pkg."""
+
+    # exe_path = os.path.dirname(argv[0])
+    exe_name = os.path.basename(argv[0])
+
+    exe_name_env = os.environ.get("f_ex", None)
+
+    args = argv[1:]
+    if exe_name == "f-all":
+        raise NotImplementedError()
+    {% for script_name, details in scripts.items() %}
+    elif exe_name == "{{ script_name }}" or exe_name == "{{ script_name }}.bin" or exe_name == "{{ script_name }}.exe":
+        from {{ details['module'] }} import {{ details['attr'] }} as cli
+
+        cli(_anyio_backend="asyncio")
+    {% endfor %}
+    else:
+
+        log.debug(
+            f"No application registered for executable name '{exe_name}' (available: {', '.join(AVAILABLE_ENTRY_POINTS)}), using default..."
+        )
+
+        from {{ main_entry_point['module'] }} import {{ main_entry_point['attr'] }} as cli
+
+        cli(_anyio_backend="asyncio")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(cli_entry(sys.argv))

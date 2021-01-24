@@ -1,0 +1,43 @@
+{
+  "binaries": [],
+  "cipher": null,
+  "datas": [
+    [
+      "/home/markus/projects/python-projects/frkl.project-meta/src/frkl/project_meta/version.txt",
+      "frkl.project_meta"
+    ],
+    [
+      "/home/markus/projects/python-projects/frkl.project-meta/src/frkl/project_meta/resources/.gitkeep",
+      "frkl.project_meta/resources"
+    ],
+    [
+      "/home/markus/projects/python-projects/frkl.project-meta/src/frkl/project_meta/resources/entry_point.py.j2",
+      "frkl.project_meta/resources"
+    ],
+    [
+      "/tmp/pkg_builduh3mifhh/app.json",
+      "frkl.project_meta"
+    ]
+  ],
+  "excludes": [
+    "FixTk",
+    "tcl",
+    "tk",
+    "_tkinter",
+    "tkinter",
+    "Tkinter"
+  ],
+  "hiddenimports": [
+    "frkl.project_meta.defaults",
+    "frkl.project_meta.interfaces.cli"
+  ],
+  "hookspath": null,
+  "noarchive": false,
+  "pathex": [],
+  "runtime_hooks": null,
+  "scripts": [
+    "/tmp/pkg_builduh3mifhh/cli.py"
+  ],
+  "win_no_prefer_redirects": false,
+  "win_private_assemblies": false
+}

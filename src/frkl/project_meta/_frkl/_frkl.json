@@ -1,0 +1,15 @@
+{
+  "template": {
+    "url": "https://gitlab.com/frkl/frkl.python-project.git",
+    "commit": "1a179d5f9efd95fa09a7f5585a6584904e17a2e4"
+  },
+  "project": {
+    "full_name": "Markus Binsteiner",
+    "email": "markus@frkl.io",
+    "project_name": "frkl.project-meta",
+    "exe_name": "project-meta",
+    "project_slug": "frkl_project_meta",
+    "project_main_module": "frkl.project_meta",
+    "project_short_description": "frkl_project_meta"
+  }
+}
