@@ -6,9 +6,9 @@ There are three ways to install *frkl.project-meta* on your machine. Via a manua
 
 To install `frkl.project-meta`, download the appropriate binary from one of the links below, and set the downloaded file to be executable (``chmod +x project-meta``):
 
-  - [Linux](https://s3-eu-west-1.amazonaws.com/dev.dl.frkl.io/linux-gnu/project-meta)
-  - [Windows](https://s3-eu-west-1.amazonaws.com/dev.dl.frkl.io/windows/project-meta.exe)
-  - [Mac OS X](https://s3-eu-west-1.amazonaws.com/dev.dl.frkl.io/darwin/project-meta)
+  - [Linux](https://s3-eu-west-1.amazonaws.com/dev.dl.frkl.io/linux-gnu/frkl-project)
+  - [Windows](https://s3-eu-west-1.amazonaws.com/dev.dl.frkl.io/windows/frkl-project.exe)
+  - [Mac OS X](https://s3-eu-west-1.amazonaws.com/dev.dl.frkl.io/darwin/frkl-project)
 
 
 ## Install script
@@ -16,13 +16,13 @@ To install `frkl.project-meta`, download the appropriate binary from one of the 
 Alternatively, use the 'curly' install script for `frkl.project-meta`:
 
 ``` console
-curl https://gitlab.com/frkl/frkl.project-meta/-/raw/develop/scripts/install/project-meta.sh | bash
+curl https://gitlab.com/frkl/frkl.project-meta/-/raw/develop/scripts/install/frkl-project.sh | bash
 ```
 
 
 This will add a section to your shell init file to add the install location (``$HOME/.local/share/frkl/bin``) to your ``$PATH``.
 
-You might need to source that file (or log out and re-log in to your session) in order to be able to use *project-meta*:
+You might need to source that file (or log out and re-log in to your session) in order to be able to use *frkl-project*:
 
 ``` console
 source ~/.profile
@@ -44,8 +44,8 @@ Collecting frkl.project-meta
 ...
 ...
 Successfully installed aiokafka-0.6.0 aiopg-1.0.0 ... ... ...
-> frkl.project-meta --help
-Usage: frkl.project-meta [OPTIONS] COMMAND [ARGS]...
+> frkl-project --help
+Usage: frkl-project [OPTIONS] COMMAND [ARGS]...
    ...
    ...
 ```

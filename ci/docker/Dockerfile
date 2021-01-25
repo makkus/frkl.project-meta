@@ -4,7 +4,7 @@ RUN \
    apt update -y && \
    apt install -y wget git
 
-COPY project-meta /usr/bin/project-meta
+COPY frkl-project /usr/bin/frkl-project
 
 RUN \
-   chmod +x /usr/bin/project-meta
+   chmod +x /usr/bin/frkl-project

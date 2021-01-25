@@ -19,9 +19,9 @@ Documentation still to be done.
 
 ### Binaries
 
-  - [Linux](https://s3-eu-west-1.amazonaws.com/dev.dl.frkl.io/linux-gnu/project-meta)
-  - [Windows](https://s3-eu-west-1.amazonaws.com/dev.dl.frkl.io/windows/project-meta.exe)
-  - [Mac OS X](https://s3-eu-west-1.amazonaws.com/dev.dl.frkl.io/darwin/project-meta)
+  - [Linux](https://s3-eu-west-1.amazonaws.com/dev.dl.frkl.io/linux-gnu/frkl-project)
+  - [Windows](https://s3-eu-west-1.amazonaws.com/dev.dl.frkl.io/windows/frkl-project.exe)
+  - [Mac OS X](https://s3-eu-west-1.amazonaws.com/dev.dl.frkl.io/darwin/frkl-project)
 
 
 # Development

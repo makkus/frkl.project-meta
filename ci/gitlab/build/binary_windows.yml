@@ -13,4 +13,4 @@ frkl_project_meta_build_binary_windows:
     - "/opt/entrypoint.sh"
   artifacts:
     paths:
-      - dist/windows/project-meta.exe
+      - dist/windows/frkl-project.exe

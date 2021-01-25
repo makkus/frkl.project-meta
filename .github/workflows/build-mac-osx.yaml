@@ -86,4 +86,4 @@ jobs:
         uses: actions/upload-artifact@v1
         with:
           name: frkl.project-meta
-          path: dist/darwin19/project-meta
+          path: dist/darwin19/frkl-project

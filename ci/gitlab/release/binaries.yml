@@ -7,5 +7,5 @@ frkl_project_meta_release_binaries_dev:
   only:
     - develop
   script:
-  - aws s3 cp --content-type binary/octet-stream dist/linux-gnu/project-meta s3://dev.dl.frkl.io/linux-gnu/project-meta
-  - aws s3 cp --content-type binary/octet-stream dist/windows/project-meta.exe s3://dev.dl.frkl.io/windows/project-meta.exe
+  - aws s3 cp --content-type binary/octet-stream dist/linux-gnu/frkl-project s3://dev.dl.frkl.io/linux-gnu/frkl-project
+  - aws s3 cp --content-type binary/octet-stream dist/windows/frkl-project.exe s3://dev.dl.frkl.io/windows/frkl-project.exe

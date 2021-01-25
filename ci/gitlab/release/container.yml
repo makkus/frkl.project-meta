@@ -8,7 +8,7 @@ frkl_project_meta_release_container_image:
    needs:
      - frkl_project_meta_build_binary_linux
    script:
-     - cp dist/linux-gnu/project-meta ci/docker/project-meta
+     - cp dist/linux-gnu/frkl-project ci/docker/frkl-project
      - cd ci/docker
      - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
      - docker pull $CI_REGISTRY_IMAGE:dev || true

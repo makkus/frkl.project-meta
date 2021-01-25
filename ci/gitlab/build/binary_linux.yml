@@ -12,4 +12,4 @@ frkl_project_meta_build_binary_linux:
     - "scripts/build-binary/build.sh"
   artifacts:
     paths:
-      - dist/linux-gnu/project-meta
+      - dist/linux-gnu/frkl-project

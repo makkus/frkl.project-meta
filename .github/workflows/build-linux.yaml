@@ -97,4 +97,4 @@ jobs:
         uses: actions/upload-artifact@v1
         with:
           name: frkl.project-meta
-          path: dist/linux-gnu/project-meta
+          path: dist/linux-gnu/frkl-project
