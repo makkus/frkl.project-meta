@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 import json
+import os
 from pathlib import Path
+from typing import Optional
 
 import asyncclick as click
 from frkl.project_meta.core import ProjectMetadata
@@ -25,12 +27,6 @@ def update_project_metadata(main_module: str):
     md_json = json.dumps(
         md_obj.to_dict(), sort_keys=True, indent=2, separators=(",", ": ")
     )
-    renderer = PyinstallerBuildRenderer(md_obj)
-    analysis_args = renderer.create_analysis_args()
-
-    aa_json = json.dumps(
-        analysis_args, sort_keys=True, indent=2, separators=(",", ": ")
-    )
 
     base_dir = Path(".")
 
@@ -39,12 +35,9 @@ def update_project_metadata(main_module: str):
     md_dir.mkdir(parents=True, exist_ok=True)
 
     md_file = md_dir / "project.json"
-    aa_file = md_dir / "pyinstaller-args.json"
 
     print(f"Writing metadata to: {md_file.as_posix()}")
     md_file.write_text(md_json)
-    print(f"Writing build info to: {aa_file.as_posix()}")
-    aa_file.write_text(aa_json)
 
 
 @cli.command()
@@ -75,17 +68,26 @@ def runtime_info(ctx, main_module: str):
 
 @cli.command()
 @click.argument("main_module", nargs=1)
+@click.argument("path", nargs=1, required=False)
 @click.pass_context
-def pyinstaller_args(ctx, main_module: str):
+def pyinstaller_config(ctx, main_module: str, path: Optional[str] = None):
+
+    if not path:
+        path = os.getcwd()
 
     md_obj: ProjectMetadata = ProjectMetadata(project_main_module=main_module)
     renderer = PyinstallerBuildRenderer(md_obj)
-    analysis_args = renderer.create_analysis_args()
+    analysis_args = renderer.create_analysis_args(path)
 
     md_json = json.dumps(
         analysis_args, sort_keys=True, indent=2, separators=(",", ": ")
     )
-    print(md_json)
+
+    analysis_args_file = os.path.join(path, "pyinstaller_args.json")
+
+    print(f"Writing pyinstaller config to: {analysis_args_file}")
+    with open(analysis_args_file, "w") as f:
+        f.write(md_json)
 
 
 if __name__ == "__main__":

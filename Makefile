@@ -87,8 +87,11 @@ init: clean ## install the package to the active Python's site-packages
 install: clean ## install the package to the active Python's site-packages
 	python setup.py install
 
-binary: clean project-info ## build single-file binary
+binary: clean project-info binary-config ## build single-file binary
 	scripts/build-binary/build.sh
+
+binary-config: ## create binary-build config
+	frkl-project pyinstaller-config frkl.project_meta .frkl/pyinstaller
 
 clean-build: ## remove build artifacts
 	rm -fr build/

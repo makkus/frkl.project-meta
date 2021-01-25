@@ -20,7 +20,7 @@ project_dir = os.path.abspath(os.path.join(DISTPATH, "..", ".."))
 with open('.frkl/project.json') as f:
     project_metadata = json.load(f)
 
-with open('.frkl/pyinstaller-args.json') as f:
+with open('.frkl/pyinstaller/pyinstaller_args.json') as f:
     analysis_args = json.load(f)
 
 print(project_metadata)

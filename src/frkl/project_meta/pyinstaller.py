@@ -199,7 +199,7 @@ class PyinstallerBuildRenderer(object):
 
         return self._project_metadata.metadata["project_main_module"]
 
-    def create_analysis_args(self):
+    def create_analysis_args(self, path: str = None):
 
         package_data = self._project_metadata.create_package_data()
         app_details = package_data["app_details"]
@@ -212,7 +212,13 @@ class PyinstallerBuildRenderer(object):
         hooks_path = None
         block_cipher = None
 
-        tempdir = tempfile.mkdtemp(prefix="pkg_build")
+        if not path:
+            working_dir = tempfile.mkdtemp(prefix="pkg_build")
+        else:
+            path = os.path.abspath(os.path.expanduser(path))
+            os.makedirs(path, exist_ok=True)
+            working_dir = path
+
         datas = get_datas(resources_map=package_data["resources"])
 
         # ep_hooks, auto_imports = get_entry_point_imports_hook(entry_points=entry_points)
@@ -224,10 +230,10 @@ class PyinstallerBuildRenderer(object):
         #     runtime_hooks.append(path)
 
         sc = create_entry_point_from_template(
-            main_module=main_module, working_dir=tempdir, entry_points=entry_points
+            main_module=main_module, working_dir=working_dir, entry_points=entry_points
         )
 
-        app_details_file = os.path.join(tempdir, "app.json")
+        app_details_file = os.path.join(working_dir, "app.json")
         with open(app_details_file, "w") as f:  # type: ignore
             json.dump(app_details, f)
         d = (app_details_file, main_module)
