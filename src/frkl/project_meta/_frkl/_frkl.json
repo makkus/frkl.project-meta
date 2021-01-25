@@ -7,7 +7,7 @@
     "full_name": "Markus Binsteiner",
     "email": "markus@frkl.io",
     "project_name": "frkl.project-meta",
-    "exe_name": "project-meta",
+    "exe_name": "frkl-project",
     "project_slug": "frkl_project_meta",
     "project_main_module": "frkl.project_meta",
     "project_short_description": "frkl_project_meta"

@@ -7,7 +7,7 @@
     },
     "project": {
       "email": "markus@frkl.io",
-      "exe_name": "project-meta",
+      "exe_name": "frkl-project",
       "full_name": "Markus Binsteiner",
       "project_main_module": "frkl.project_meta",
       "project_name": "frkl.project-meta",
@@ -24,7 +24,11 @@
   "runtime_details": {
     "app_type": "python-env",
     "build_info": {},
-    "entry_point": null
+    "entry_point": {
+      "attr": "cli",
+      "module": "frkl.project_meta.interfaces.cli",
+      "name": "frkl-project"
+    }
   },
   "version": "0.1.dev8+g4eab968.d20210125"
 }
