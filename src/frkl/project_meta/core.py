@@ -27,7 +27,7 @@ from frkl.project_meta.utils import discover_installed_modules
 
 
 try:
-    from importlib_metadata import entry_points
+    from importlib_metadata import entry_points  # type: ignore
 except Exception:
     from importlib.metadata import entry_points
 
