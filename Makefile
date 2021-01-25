@@ -79,7 +79,7 @@ init: clean ## install the package to the active Python's site-packages
 	pip install -U pip
 	pip install --extra-index-url https://pkgs.frkl.io/frkl/dev --extra-index-url https://pkgs.frkl.dev/pypi -U -e '.[all-dev]'
 	pre-commit install
-	frkl-project update-project-metadata frkl.project_meta
+	frkl-project update-project-metadata "frkl.project_meta"
 	git add "*" ".*"
 	pre-commit run --all-files || true
 	git add "*" ".*"
@@ -121,7 +121,7 @@ mypy: ## run mypy
 check: black flake mypy test ## run dev-related checks
 
 project-info:
-	frkl-project update-project-metadata frkl.project_meta
+	frkl-project update-project-metadata "frkl.project_meta"
 
 black: ## run black
 	black --config pyproject.toml setup.py src/frkl/project_meta tests
