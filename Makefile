@@ -70,7 +70,6 @@ docs:
 	pydoc-markdown
 	mkdocs build
 
-
 clean: clean-build clean-pyc clean-test ## remove all build, test, coverage and Python artifacts
 
 init: clean ## install the package to the active Python's site-packages

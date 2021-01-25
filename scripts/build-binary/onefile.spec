@@ -7,9 +7,6 @@ import pp
 import os
 import sys
 
-from frkl.project_meta.pyinstaller import PyinstallerBuildRenderer
-from frkl.project_meta import get_project_metadata
-
 block_cipher = None
 
 # remove tkinter dependency ( https://github.com/pyinstaller/pyinstaller/wiki/Recipe-remove-tkinter-tcl )
