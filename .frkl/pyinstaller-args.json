@@ -15,7 +15,7 @@
       "frkl.project_meta"
     ],
     [
-      "/tmp/pkg_buildkpffm7gv/app.json",
+      "/tmp/pkg_build9syeie4x/app.json",
       "frkl.project_meta"
     ]
   ],
@@ -28,15 +28,15 @@
     "Tkinter"
   ],
   "hiddenimports": [
-    "frkl.project_meta.defaults",
-    "frkl.project_meta.interfaces.cli"
+    "frkl.project_meta.interfaces.cli",
+    "frkl.project_meta.defaults"
   ],
   "hookspath": null,
   "noarchive": false,
   "pathex": [],
   "runtime_hooks": null,
   "scripts": [
-    "/tmp/pkg_buildkpffm7gv/cli.py"
+    "/tmp/pkg_build9syeie4x/cli.py"
   ],
   "win_no_prefer_redirects": false,
   "win_private_assemblies": false
