@@ -173,7 +173,7 @@ function build_artifact () {
 
     cd "${project_root}"
 
-    make config
+    make project-info
     make binary-config
 
     pyinstaller --clean -y --dist "${target}" --workpath "${temp_dir}" "${spec_file}"
