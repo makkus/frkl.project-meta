@@ -3,10 +3,6 @@
   "cipher": null,
   "datas": [
     [
-      "/home/markus/projects/python-projects/frkl.project-meta/src/frkl/project_meta/version.txt",
-      "frkl.project_meta"
-    ],
-    [
       "/home/markus/projects/python-projects/frkl.project-meta/src/frkl/project_meta/resources/.gitkeep",
       "frkl.project_meta/resources"
     ],
@@ -15,7 +11,11 @@
       "frkl.project_meta/resources"
     ],
     [
-      "/tmp/pkg_builduh3mifhh/app.json",
+      "/home/markus/projects/python-projects/frkl.project-meta/src/frkl/project_meta/version.txt",
+      "frkl.project_meta"
+    ],
+    [
+      "/tmp/pkg_buildkpffm7gv/app.json",
       "frkl.project_meta"
     ]
   ],
@@ -36,7 +36,7 @@
   "pathex": [],
   "runtime_hooks": null,
   "scripts": [
-    "/tmp/pkg_builduh3mifhh/cli.py"
+    "/tmp/pkg_buildkpffm7gv/cli.py"
   ],
   "win_no_prefer_redirects": false,
   "win_private_assemblies": false

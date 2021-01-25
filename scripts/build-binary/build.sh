@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-DEFAULT_PYTHON_VERSION="3.7.8"
+DEFAULT_PYTHON_VERSION="3.9.1"
 DEFAULT_PYINSTALLER_VERSION="4.2"
 
 THIS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
@@ -59,24 +59,35 @@ function ensure_python () {
             echo "Can't install pyenv. Need wget or curl."
             exit 1
         fi
-
     fi
-
-    eval "$(pyenv init -)"
-    eval "$(pyenv virtualenv-init -)"
 
     local python_path="${HOME}/.pyenv/versions/${python_version}"
     if [ -n "${python_version}" ]; then
       # python version
       if [ ! -e "${python_path}" ]; then
+          pyenv update
           env PYTHON_CONFIGURE_OPTS="--enable-shared" pyenv install "${python_version}"
+          if [ $? -ne 0 ]; then
+            echo "Can't install requested Python version: ${python_version}"
+#            exit 1
+          fi
+          eval "$(pyenv init -)"
+          eval "$(pyenv virtualenv-init -)"
+
       fi
     else
       echo "No Python version provided"
       exit 1
     fi
+}
 
+function get_python_path () {
+
+    local python_version="${1}"
+
+    local python_path="${HOME}/.pyenv/versions/${python_version}/bin/python"
     echo ${python_path}
+
 }
 
 
@@ -86,17 +97,10 @@ function ensure_virtualenv () {
    local python_version="${2}"
    local venv_name="${3}"
 
-   export PATH="${HOME}/.pyenv/bin:$PATH"
-
-   local virtualenv_path="${HOME}/.pyenv/versions/${venv_name}"
-
-    if [ -n "${venv_name}" ]; then
-      if [ ! -e "${virtualenv_path}" ]; then
-          pyenv virtualenv "${python_version}" "${venv_name}" 2&> /dev/null
-      fi
-    else
-      echo "No virtualenv name provided. Exiting..."
-      exit 1
+    local virtualenv_path="${HOME}/.cache/frkl-build-envs/${venv_name}-${python_version}"
+    if [ ! -e "${virtualenv_path}/bin/activate" ]; then
+      cmd=( "${python_path}" "-m" "venv" "${virtualenv_path}" )
+      "${cmd[@]}"
     fi
 
     echo ${virtualenv_path}
@@ -143,7 +147,8 @@ function build_artifact () {
     mkdir -p "${build_dir}"
 
     echo "making sure Python version is available..."
-    python_path=$(ensure_python "${python_version}")
+    ensure_python "${python_version}"
+    python_path=$(get_python_path "${python_version}")
     echo " -> Python ${python_version} exists"
     echo
 
@@ -346,12 +351,12 @@ echo "starting build..."
 echo
 
 set -e
-set -x
+#set -x
 
 main "${PROJECT_ROOT}" "${BUILD_DIR}" "${VENV_NAME}" "${PYTHON_VERSION}" "${PYINSTALLER_VERSION}" "${REQUIREMENTS_FILE}" "${OUTPUT_DIR}" "${SPEC_FILE}"
 
 set +e
-set +x
+#set +x
 
 echo
 echo "build finished"
