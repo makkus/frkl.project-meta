@@ -1,12 +1,12 @@
 frkl_project_meta_build_binary_linux:
   image:
-    name: registry.gitlab.com/frkl/frkl-python-build:dev
+    name: registry.gitlab.com/frkl/frkl.python-binary-build:dev
     entrypoint: [""]
   stage: build
   variables:
     SRCDIR: $CI_PROJECT_DIR
     TEMPDIR: "$CI_PROJECT_DIR/build_temp"
-    PYTHON_VERSION: "3.7.8"
+    PYTHON_VERSION: "3.9.1"
     SPEC_FILE: "scripts/build-binary/onefile.spec"
   script:
     - "scripts/build-binary/build.sh"
