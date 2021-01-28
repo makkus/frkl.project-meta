@@ -1,4 +1,4 @@
-.frkl_project_meta_release_pkg_dev:
+frkl_project_meta_release_pkg_dev:
   image: python:latest
 
   run:
