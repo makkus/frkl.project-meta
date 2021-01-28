@@ -70,13 +70,11 @@ jobs:
       - name: create documentation
         run: make docs
       - name: deploy documentation to gh-pages
-        uses: JamesIves/github-pages-deploy-action@3.5.7
+        uses: JamesIves/github-pages-deploy-action@3.7.1
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: gh-pages
           FOLDER: build/site
-
-
 
   build-linux:
     name: build linux binary
