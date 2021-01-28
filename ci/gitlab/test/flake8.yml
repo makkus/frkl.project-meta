@@ -1,5 +1,5 @@
 frkl_project_meta_test_flake8:
-  image: python:3.8
+  image: python:3.9
   stage: test
   before_script:
     - curl -O https://bootstrap.pypa.io/get-pip.py

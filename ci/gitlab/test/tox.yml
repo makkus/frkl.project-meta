@@ -1,11 +1,12 @@
 .frkl_project_meta_test:
-  image: python:3.8
+
+  image: python:3.9
   before_script:
     - curl -O https://bootstrap.pypa.io/get-pip.py
     - python get-pip.py
     - pip install -U setuptools tox
   script:
-    - tox -e py38
+    - tox -e py39
 
 frkl_project_meta_test_tox_py36:
   extends: .frkl_project_meta_test
@@ -20,4 +21,10 @@ frkl_project_meta_test_tox_py37:
     - tox -e py37
 
 frkl_project_meta_test_tox_py38:
+  extends: .frkl_project_meta_test
+  image: python:3.8
+  script:
+    - tox -e py38
+
+frkl_project_meta_test_tox_py39:
   extends: .frkl_project_meta_test

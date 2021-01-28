@@ -1,5 +1,5 @@
 frkl_project_meta_test_coverage:
-  image: python:3.8
+  image: python:3.9
   coverage: '/^TOTAL.+?(\d+\%)$/'
   stage: test
   before_script:
