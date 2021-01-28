@@ -70,10 +70,12 @@ def define_env(env):
         return f"```{format}\n{f.read_text()}\n```"
 
 
-def build_api_docs(*args, **kwargs):
+def build_api_docs(project_root: Optional[str] = None):
 
-    root_dir = os.path.join(os.path.dirname(__file__), "..", "..")
-    config = os.path.join(root_dir, "pydoc-markdown.yml")
+    if not project_root:
+        project_root = os.getcwd()
+
+    config = os.path.join(project_root, "pydoc-markdown.yml")
     session = RenderSession(config)
     pydocmd = session.load()
     session.render(pydocmd)

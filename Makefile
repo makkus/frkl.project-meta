@@ -28,7 +28,7 @@ define SERVE_HELP_PYSCRIPT
 import multiprocessing
 import time
 from mkdocs.commands import serve
-from ci.docs import build_api_docs
+from frkl.project_meta.documentation.mkdocs_macros_frkl import build_api_docs
 from watchgod import watch
 
 build_api_docs()
