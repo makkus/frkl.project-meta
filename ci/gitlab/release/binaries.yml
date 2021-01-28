@@ -9,3 +9,11 @@ frkl_project_meta_release_binaries_dev:
   script:
   - aws s3 cp --content-type binary/octet-stream dist/linux-gnu/frkl-project s3://dev.dl.frkl.io/linux-gnu/frkl-project
   - aws s3 cp --content-type binary/octet-stream dist/windows/frkl-project.exe s3://dev.dl.frkl.io/windows/frkl-project.exe
+
+frkl_project_meta_release_binary_github:
+  image: curlimages/curl:latest
+
+  stage: release
+  script:
+  - 'curl --header "JOB-TOKEN: $CI_JOB_TOKEN" --upload-file dist/linux-gnu/frkl-project "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/frkl.project-meta/0.0.0/linux/frkl-project"'
+  - 'curl --header "JOB-TOKEN: $CI_JOB_TOKEN" --upload-file dist/windows/frkl-project.exe "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/frkl.project-meta/0.0.0/windows/frkl-project.exe"'
