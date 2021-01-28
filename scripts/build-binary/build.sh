@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-DEFAULT_PYTHON_VERSION="3.7.8"
+DEFAULT_PYTHON_VERSION="3.9.1"
 DEFAULT_PYINSTALLER_VERSION="4.2"
 
 THIS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"

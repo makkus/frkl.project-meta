@@ -23,4 +23,5 @@ nav:
 plugins:
 - search
 - macros:
-   module_name: ci.docs
+   modules:
+    - frkl.project_meta.documentation.mkdocs_macros_frkl
