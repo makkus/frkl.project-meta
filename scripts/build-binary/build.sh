@@ -142,7 +142,7 @@ function build_artifact () {
     local output_dir="${7}"
     local spec_file="${8}"
 
-    local target="${output_dir}/${os_type}"
+    local target="${output_dir}/${OSTYPE}"
 
     mkdir -p "${build_dir}"
 
