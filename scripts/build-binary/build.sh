@@ -5,9 +5,6 @@ DEFAULT_PYINSTALLER_VERSION="4.2"
 
 THIS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-source "${THIS_DIR}/pyenv.sh"
-
-
 function command_exists {
    type "$1" > /dev/null 2>&1 ;
 }
